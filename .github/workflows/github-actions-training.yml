@@ -11,7 +11,6 @@ jobs:
 
       - name: Setup node
         uses: actions/setup-node@v3
-        run: node -v
 
       - name: Check node version
         run: node -v
