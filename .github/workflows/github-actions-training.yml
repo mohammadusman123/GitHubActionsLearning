@@ -6,11 +6,14 @@ jobs:
   check-node-version:
     runs-on: ubuntu-latest
     steps:
-      - name: Setup environment
+      - name: Fecth code
         uses: actions/checkout@v3
+
+      - name: Setup and check node version
         uses: actions/setup-node@v3
+        run: node -v
 
       - run: node -v
-      
+
       - name: Build project
         run: dotnet build
