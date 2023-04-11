@@ -1,4 +1,4 @@
-name: github-action-learning
+name: github-action-training-push
 
 on: [push]
 
