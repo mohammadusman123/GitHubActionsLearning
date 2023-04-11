@@ -9,11 +9,12 @@ jobs:
       - name: Fecth code
         uses: actions/checkout@v3
 
-      - name: Setup and check node version
+      - name: Setup node
         uses: actions/setup-node@v3
         run: node -v
 
-      - run: node -v
+      - name: Check node version
+        run: node -v
 
       - name: Build project
         run: dotnet build
