@@ -25,7 +25,7 @@ jobs:
             run: dotnet restore "${{env.SOLUTION_PATH}}"
             
           - name: Build project
-            run: dotnet build "${{env.SOLUTION_PATH}}" --no-restore
+            run: dotnet build "${{env.SOLUTION_PATH}}" --configuration Release --no-restore
             
           - name: Publish project
-            run: dotnet publish "${{env.SOLUTION_PATH}}" --output "${{env.AZURE_PUBLISH_PATH}}" --no-biuld
+            run: dotnet publish --configuration Release --output "${{env.AZURE_PUBLISH_PATH}}" --no-biuld
