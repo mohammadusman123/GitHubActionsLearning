@@ -10,19 +10,20 @@ env:
     SOLUTION_PATH: "./GitHubActionsTraining.sln"
 
 jobs:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Fecth code
-        uses: actions/checkout@v3
+    publish-proj:
+        runs-on: ubuntu-latest
+        steps:
+          - name: Fecth code
+            uses: actions/checkout@v3
 
-      - name: Setup node
-        uses: actions/setup-node@v3
+          - name: Setup node
+            uses: actions/setup-node@v3
 
-      - name: Check node version
-        run: node -v
+          - name: Check node version
+            run: node -v
 
-      - name: Build project
-        run: dotnet build "${{env.SOLUTION_PATH}}"
-        
-      - name: Publish project
-        run: dotnet publish "${{env.SOLUTION_PATH}}" --no-biuld --output "${{env.AZURE_PUBLISH_PATH}}"
+          - name: Build project
+            run: dotnet build "${{env.SOLUTION_PATH}}"
+            
+          - name: Publish project
+            run: dotnet publish "${{env.SOLUTION_PATH}}" --no-biuld --output "${{env.AZURE_PUBLISH_PATH}}"
