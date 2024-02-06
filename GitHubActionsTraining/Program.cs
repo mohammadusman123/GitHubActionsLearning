@@ -1,6 +1,8 @@
+using Microsoft.AspNetCore.Mvc;
+
 var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
 
-app.MapGet("/", () => "Hello World!");
+app.MapGet("/time/utc", () => Results.Ok(DateTimeOffset.Now));
 
 app.Run();
