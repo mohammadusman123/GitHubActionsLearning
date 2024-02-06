@@ -1,9 +1,16 @@
 name: github-action-training-push
 
-on: [push]
+on: 
+    push:
+        braches:
+        - master
+
+env:
+    AZURE_PUBLISH_PATH: "./publish"
+    SOLUTION_PATH: "./GitHubActionsTraining.sln"
 
 jobs:
-  check-node-version:
+    check-node-version:
     runs-on: ubuntu-latest
     steps:
       - name: Fecth code
@@ -16,4 +23,7 @@ jobs:
         run: node -v
 
       - name: Build project
-        run: dotnet build
+        run: dotnet build "${{env.SOLUTION_PATH}}"
+        
+      - name: Publish project
+        run: dotnet publish "${{env.SOLUTION_PATH}}" --no-biuld --output "${{env.AZURE_PUBLISH_PATH}}"
