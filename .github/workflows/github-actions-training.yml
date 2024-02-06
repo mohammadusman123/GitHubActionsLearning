@@ -10,7 +10,7 @@ env:
     SOLUTION_PATH: "./GitHubActionsTraining.sln"
 
 jobs:
-    publish-proj:
+    Publish:
         runs-on: ubuntu-latest
         steps:
           - name: Fecth code
