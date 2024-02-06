@@ -10,7 +10,6 @@ env:
     SOLUTION_PATH: "./GitHubActionsTraining.sln"
 
 jobs:
-    check-node-version:
     runs-on: ubuntu-latest
     steps:
       - name: Fecth code
