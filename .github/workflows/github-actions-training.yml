@@ -22,8 +22,11 @@ jobs:
           - name: Check node version
             run: node -v
 
+          - name: Restore project
+            run: dotnet restore "${{env.SOLUTION_PATH}}"
+            
           - name: Build project
-            run: dotnet build "${{env.SOLUTION_PATH}}"
+            run: dotnet build "${{env.SOLUTION_PATH}} --no-restore"
             
           - name: Publish project
-            run: dotnet publish "${{env.SOLUTION_PATH}}" --no-biuld --output "${{env.AZURE_PUBLISH_PATH}}"
+            run: dotnet publish "${{env.SOLUTION_PATH}}" --output "${{env.AZURE_PUBLISH_PATH}}" --no-biuld
