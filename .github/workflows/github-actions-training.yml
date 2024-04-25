@@ -28,7 +28,7 @@ jobs:
             run: dotnet build "${{env.SOLUTION_PATH}}" --configuration Release --no-restore
 
           - name: Test project
-            run: dotnet test "${{env.SOLUTION_PATH}}" --configuration Release --no-restore
+            run: dotnet test "${{env.SOLUTION_PATH}}" --configuration Release --no-restore --no-build
             
           - name: Publish project
             run: dotnet publish "${{env.SOLUTION_PATH}}" --configuration Release --output "${{env.AZURE_PUBLISH_PATH}}" --no-build
