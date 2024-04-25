@@ -29,10 +29,10 @@ jobs:
             run: dotnet build "${{env.SOLUTION_PATH}}" --configuration Release --no-restore
 
           - name: Test project
-            run: dotnet test --no-build "${{env.TEST_SOLUTION_PATH}}" --configuration Release
+            run: ls; dotnet test --no-build "${{env.TEST_SOLUTION_PATH}}" --configuration Release
             
           - name: Publish project
-            run: ls; dotnet publish "${{env.SOLUTION_PATH}}" --configuration Release --output "${{env.AZURE_PUBLISH_PATH}}" --no-build
+            run:  dotnet publish "${{env.SOLUTION_PATH}}" --configuration Release --output "${{env.AZURE_PUBLISH_PATH}}" --no-build
         
           - name: Deploy
             uses: azure/webapps-deploy@v3
