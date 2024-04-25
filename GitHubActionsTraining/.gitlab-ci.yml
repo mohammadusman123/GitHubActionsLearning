@@ -1,4 +1,4 @@
 build-job:
   stage: build
-  script: 
+  script:
     - echo "Hello, $GITLAB_USER_LOGIN!"
