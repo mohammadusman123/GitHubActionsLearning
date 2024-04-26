@@ -8,6 +8,7 @@ on:
 env:
     AZURE_PUBLISH_PATH: "./publish"
     SOLUTION_PATH: "./GitHubActionsTraining.sln"
+    PROJECT_PATH: "./GitHubActionsTraining"
     TEST_SOLUTION_PATH: "./GitHubActionsTraining.Tests/GitHubActionsTraining.Tests.csproj"
 
 jobs:
@@ -23,20 +24,20 @@ jobs:
                 dotnet-version: '6.0.x'
 
           - name: Restore project
-            run: dotnet restore "${{env.SOLUTION_PATH}}"
+            run: dotnet restore "${{env.PROJECT_PATH}}"
             
           - name: Build project
-            run: dotnet build "${{env.SOLUTION_PATH}}" --configuration Release --no-restore
+            run: dotnet build "${{env.PROJECT_PATH}}" --configuration Release --no-restore
 
           - name: Test project
             run: dotnet test
             
           - name: Publish project
-            run:  dotnet publish "${{env.SOLUTION_PATH}}" --configuration Release --output "${{env.AZURE_PUBLISH_PATH}}" --no-build
+            run:  dotnet publish "${{env.PROJECT_PATH}}" --configuration Release --output "${{env.DOTNET_ROOT}}" --no-build
         
           - name: Deploy
             uses: azure/webapps-deploy@v3
             with:
                 app-name: "time-service-test"
                 publish-profile: "${{secrets.PUBLISH_PROFILE}}"
-                package: "${{env.AZURE_PUBLISH_PATH}}"
+                package: "${{env.env.DOTNET_ROOT}}"
