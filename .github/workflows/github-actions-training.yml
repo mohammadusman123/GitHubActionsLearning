@@ -30,7 +30,7 @@ jobs:
             run: dotnet build "${{env.PROJECT_PATH}}" --configuration Release --no-restore
 
           - name: Test project
-            run: dotnet test
+            run: dotnet test --configuration Release
             
           - name: Publish project
             run:  dotnet publish "${{env.PROJECT_PATH}}" --configuration Release --output "${{env.DOTNET_ROOT}}" --no-build
