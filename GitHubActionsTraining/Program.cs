@@ -10,7 +10,6 @@ app.MapGet("/time/utc",
 
 app.Run();
 
-
 public partial class Program
 {
 }
