@@ -29,6 +29,6 @@ public class UnitTest1
         var result = await client.GetStringAsync("/time/utc");
 
         //assert
-        Assert.Contains("day", result.ToLower());
+        Assert.DoesNotContain("day", result.ToLower());
     }
 }
