@@ -7,7 +7,8 @@ var app = builder.Build();
 app.MapGet("/time/utc",
     // () => Results.Ok("Current time is: " + DateTimeOffset.Now + ", day is: " +
     //                  DateTimeOffset.Now.DayOfWeek + " and the weather is chilly"));
-    () => Results.Ok("Current time is: " + DateTimeOffset.Now));
+    () => Results.Ok("Current time is: " + DateTimeOffset.Now + ", day is: " +
+                     DateTimeOffset.Now.DayOfWeek + " and the weather is chilly"));
 
 app.Run();
 
